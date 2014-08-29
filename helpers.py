@@ -35,3 +35,20 @@ def print_result_line(c):
                 c.details.appDetails.numDownloads]
     print SEPARATOR.join(unicode(i).encode('utf8') for i in l)
 
+
+
+def print_first_result(c):
+    l = [ c.title,
+                c.docid,
+                c.creator,
+                len(c.annotations.badgeForCreator), # Is Super Developer?
+                c.offer[0].formattedAmount,
+                c.offer[0].offerType,
+                c.details.appDetails.versionCode,
+                sizeof_fmt(c.details.appDetails.installationSize),
+                "%.2f" % c.aggregateRating.starRating,
+                c.details.appDetails.numDownloads]
+    print l
+
+def get_version_code(c):
+    print c.details.appDetails.versionCode
